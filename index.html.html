@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Livro Sem Autor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="tela-inicial" id="telaInicial">
+    <div class="livro">
+      <p class="subtitulo">um arquivo esquecido</p>
+      <h1>O Livro Sem Autor</h1>
+
+      <p class="texto">
+        Algumas histórias começam pela primeira página.
+        <br>
+        Esta não.
+      </p>
+
+      <button id="botaoComecar">Abrir o livro</button>
+    </div>
+  </main>
+
+  <main class="capitulo escondido" id="capitulo1">
+    <div class="livro grande">
+      <p class="subtitulo">Biblioteca Central</p>
+      <h1>Setor I — Receitas</h1>
+
+      <p class="texto">
+        Entre todas as salas da biblioteca, esta parece estranhamente familiar.
+        <br>
+        O cheiro de baunilha, chocolate e açúcar ainda permanece no ar.
+      </p>
+
+      <p class="bilhete">
+        “A próxima chave está escondida em um dos livros desta estante.
+        Apenas um deles pertence verdadeiramente a este lugar.”
+      </p>
+
+      <div class="estante">
+        <button class="livro-estante" data-livro="ervas">Compêndio das Ervas Esquecidas</button>
+        <button class="livro-estante" data-livro="pao">Os Segredos do Pão Real</button>
+        <button class="livro-estante" data-livro="chas">Enciclopédia dos Chás Lunares</button>
+        <button class="livro-estante certo" data-livro="redvelvet">Red Velvet — Edição Anotada</button>
+        <button class="livro-estante" data-livro="conservas">Conservas para Tempos Difíceis</button>
+        <button class="livro-estante" data-livro="doces">Doces das Terras Distantes</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal escondido" id="modalLivro">
+    <div class="pagina">
+      <h2 id="tituloLivro"></h2>
+      <p id="descricaoLivro"></p>
+
+      <div id="receitaLivro"></div>
+
+      <button id="fecharLivro">Voltar à estante</button>
+      <button id="continuarLivro" class="escondido">Continuar</button>
+    </div>
+</div>
+
+<main class="desbloqueio escondido" id="telaDesbloqueio">
+  <div class="livro">
+    <p class="subtitulo">chave encontrada</p>
+
+    <h1>Setor I concluído</h1>
+
+    <p class="texto">
+      A biblioteca reconheceu sua escolha.
+      <br>
+      Uma nova porta acaba de ser destrancada.
+    </p>
+
+    <button id="irSetor2">Entrar no Setor II</button>
+  </div>
+</main>
+
+<main class="capitulo escondido" id="capitulo2">
+  <div class="livro grande">
+    <p class="subtitulo">Biblioteca Central</p>
+    <h1>Setor II — Histórias</h1>
+
+    <p class="texto">
+      Algumas histórias são esquecidas.
+      <br>
+      Algumas são perdidas.
+      <br>
+      E algumas permanecem inacabadas por escolha do próprio Autor.
+    </p>
+
+    <p class="bilhete">
+      No centro da sala, repousa um único livro.
+      <br>
+      Sem capa. Sem título. Sem nome.
+    </p>
+
+    <button id="abrirHistoria" class="livro-unico">
+      História Sem Final
+    </button>
+  </div>
+</main>
+
+<div class="modal escondido" id="modalHistoria">
+  <div class="pagina">
+    <h2 id="tituloHistoria">História Sem Final</h2>
+
+    <div id="paginaHistoria"></div>
+
+    <button id="proximaPaginaHistoria">Virar página</button>
+
+    <div id="puzzleNome" class="escondido">
+      <p class="texto-anotacao">
+        O Autor esqueceu de escrever o nome da personagem.
+      </p>
+
+      <input id="respostaNome" type="text" placeholder="Digite o nome dela...">
+
+      <button id="confirmarNome">Escrever na página</button>
+
+      <p id="mensagemNome"></p>
+    </div>
+  </div>
+</div>
+
+<main class="desbloqueio escondido" id="telaDesbloqueio2">
+  <div class="livro">
+    <p class="subtitulo">chave registrada</p>
+
+    <h1>Setor II concluído</h1>
+
+    <p class="texto">
+      A história encontrou sua personagem.
+      <br>
+      Uma nova chave foi registrada nos arquivos da biblioteca.
+    </p>
+
+    <p class="bilhete">
+      Chave do Setor III obtida.
+    </p>
+
+    <button id="irSetor3">Abrir Arquivos de Personagens</button>
+  </div>
+</main>
+
+<main class="capitulo escondido" id="capitulo3">
+  <div class="livro grande">
+    <p class="subtitulo">Biblioteca Central</p>
+    <h1>Setor III — Arquivos de Personagens</h1>
+
+    <p class="texto">
+      Alguns personagens são lembrados por seus feitos.
+      <br>
+      Outros pelas histórias que carregam.
+      <br>
+      Este setor registra aqueles que continuam existindo na memória de seus leitores.
+    </p>
+
+    <p class="bilhete">
+      Cinco arquivos repousam sobre a mesa.
+      <br>
+      Para restaurá-los, escreva o nome correto de cada personagem.
+    </p>
+
+    <div class="arquivos-personagens" id="arquivosPersonagens"></div>
+  </div>
+</main>
+
+<div class="modal escondido" id="modalArquivo">
+  <div class="pagina arquivo-pagina">
+    <h2 id="tituloArquivo"></h2>
+
+    <div id="descricaoArquivo"></div>
+
+    <input id="respostaArquivo" type="text" placeholder="Nome do personagem...">
+
+    <button id="confirmarArquivo">Restaurar arquivo</button>
+    <button id="fecharArquivo">Voltar aos arquivos</button>
+
+    <p id="mensagemArquivo"></p>
+  </div>
+</div>
+
+<main class="capitulo escondido" id="capitulo4">
+  <div class="livro grande">
+    <p class="subtitulo">Biblioteca Central</p>
+    <h1>Setor IV — Ecos</h1>
+
+    <p class="texto">
+      A biblioteca registra histórias.
+      <br>
+      Mas algumas histórias deixam fragmentos para trás.
+      <br>
+      Estes fragmentos são chamados de Ecos.
+    </p>
+
+    <p class="bilhete">
+      Para acessar o Arquivo do Autor,
+      três ecos devem ser restaurados.
+    </p>
+
+    <div class="ecos" id="ecos"></div>
+  </div>
+</main>
+
+<div class="modal escondido" id="modalEco">
+  <div class="pagina">
+    <h2 id="tituloEco"></h2>
+    <p id="textoEco"></p>
+
+    <div id="opcoesEco"></div>
+
+    <p id="mensagemEco"></p>
+
+    <button id="fecharEco">Voltar aos ecos</button>
+  </div>
+</div>
+
+<main class="capitulo escondido" id="capituloFinal">
+  <div class="livro grande final-autor">
+    <p class="subtitulo">Arquivo do Autor</p>
+
+    <h1>História Inacabada</h1>
+
+    <p class="texto">
+      Depois de tantas páginas, receitas, arquivos e ecos,
+      a biblioteca finalmente revelou o que estava escondido.
+    </p>
+
+    <p class="bilhete">
+      Algumas histórias não precisam começar com certezas.
+      <br>
+      Às vezes, basta aceitar escrever uma página.
+    </p>
+
+    <h2 class="pedido-final">
+      Julie, você aceita namorar comigo hoje?
+    </h2>
+
+    <p class="texto-pequeno">
+      Contrato experimental de 24 horas,
+      válido exclusivamente para o Dia dos Namorados,
+      com possibilidade de renovação mediante risadas, carinho e strogonoff bem feito.
+    </p>
+
+    <div class="botoes-pedido">
+      <button id="botaoSim">Sim</button>
+      <button id="botaoNao">Não</button>
+    </div>
+
+    <div id="respostaFinal" class="resposta-final escondido">
+      <h2>Contrato aceito.</h2>
+
+      <p>
+        A biblioteca registrou oficialmente este acordo.
+        <br>
+        Duração: hoje.
+        <br>
+        Status: Fudeu.
+      </p>
+
+      <p class="manuscrito">
+        Obrigado por chegar até a última página.
+      </p>
+
+      <p class="assinatura-autor">
+        — Victor
+      </p>
+    </div>
+  </div>
+</main>
+
+<div id="cortina" class="cortina escondido"></div>
+<script src="script.js"></script>
+</body>
+</html>
